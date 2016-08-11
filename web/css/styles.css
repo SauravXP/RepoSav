@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Imports CSS Reset File */
+@import url("reset.css");
+
+aside, article, figure, footer, header, nav, section { display:block; }
+
+div { margin:0 auto; }
+
+/* Generic */
+
+header, nav, figure, footer  { width:960px; background: #ccc; }
+
+div { width:960px; height: auto; }
+
+aside, section, article { background: #ccc; }
+
+/* Header */
+
+header { height:150px;  }
+
+/* Nav */
+
+nav { height:40px; margin:15px 0;  }
+
+/* Action */
+
+figure { height: 300px; }
+
+/* Services */
+
+aside { width: 310px; height: 150px; float: left; margin: 15px 0; }
+
+.mid { margin: 15px; }
+
+/* Content */
+
+section { width: 635px; height: 400px; float: left; }
+
+/* News */
+
+article { height: 190px; margin: 0 0 15px 15px; width: 310px; float: left; }
+
+/* Footer */
+
+footer { height: 220px; clear: left; }
+

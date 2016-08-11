@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Universal Styles
+=================== */
+
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#333;
+}
+
+
+/* Container Styles
+=================== */
+
+.narrow {
+	width:960px;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+}
+
+/* Navigation Styles
+==================== */
+
+.navbar {
+	padding-top:20px;
+	background:#fff;
+	color:#333;
+	padding-left:5%;
+}
+
+.navbar li a {
+	color:#005daa;
+	text-transform:uppercase;
+	font-size:16px;
+}
+	
+.navbar li a:hover {
+	text-decoration:underline;
+	color:#005daa;
+}
+
+/* Jumbotron Styles
+=================== */
+
+.jumbotron {
+	background:#005daa;
+	border-radius:0px;
+}
+
+.jumbotron h1 {
+	color:#fff;
+	text-shadow:2px 2px 2px rgba(0,0,0,0.3);
+	text-align:center;
+}
+
+.jumbotron p.lead {
+	font-family:Verdana, Geneva, sans-serif;
+	color:#eee;
+	text-align:center;
+	text-shadow:2px 2px 2px rgba(0,0,0,0.3);
+}
+
+
+/* Marketing Row Styles
+======================= */
+
+.marketing {
+	padding-left:5%;
+	padding-right:5%;
+	padding-bottom:40px;
+}
+
+
+
+/* Custom Button Styles
+======================= */
+
+.orange {
+	background:#F60;
+	border:none;
+	border-radius:5px;
+}
+
+.orange:hover {
+	background:#F90;
+}
+
+
+/* Feature Box Styles 
+===================== */
+
+.feature-box {
+	background:#ccc;
+	width:200px;
+	height:200px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:5px;
+}
+
+.feature-box p {
+	color:#fff;
+	text-transform:uppercase;
+	line-height:200px;
+	text-align:center;
+}
+/* Footer Styles
+================ */
+
+.footer {
+	width:960px;
+	background:#005daa;
+	color:#fff;
+}
+
+.footer .marketing {
+	padding-top:20px;
+	font-size:12px;
+}
