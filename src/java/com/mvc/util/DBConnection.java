@@ -18,9 +18,9 @@ public class DBConnection {
 
     public static Connection createConnection(){
         Connection con=null;
-        String url="jdbc:sqlserver://localhost:1433;databaseName=Payroll";
+        String url="jdbc:sqlserver://localhost:1433;databaseName=AsianBanepa";
         String username="sa";
-        String password="system";
+        String password="system@ITC";
         
         try{
             try{
