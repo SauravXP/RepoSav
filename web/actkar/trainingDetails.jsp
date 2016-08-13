@@ -6,7 +6,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.mvc.bean.AgentTrainingSchedule" %>
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>                      
+  <%@page import="com.mvc.doa.TraingDaoImplement"%>
+<%@page import="com.mvc.bean.AgentTrainingSchedule"%>
+<jsp:useBean id="gt" class="com.mvc.doa.TraingDaoImplement"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>                     
 <%  
    // AgentTrainingSchedule ats=new AgentTrainingSchedule();
     String tid="";
@@ -91,7 +97,7 @@
                         
                    
                         <form role="form" method="POST" action="TrainingScheduleCont.gar">
-                            
+                     
                             <div class="form-group col-xs-12">
                                 <label class="control-label col-sm-4 small" for="tid">Training ID:<sup>*</sup></label>
             <div class="col-sm-1 small"><input type="text" name="tid" class="agtput" id="tid" required="" Value="<c:out value="${train.trainingID}" />" placeholder="Training ID">
@@ -160,7 +166,8 @@
                                 </div>
                             </div>
                         <!--    <input type="submit" value="Register" class="btn btn-info btn-block"> -->
-                        </form>
+                     
+                   </form>
                     </div>
                 </div>
             </div>

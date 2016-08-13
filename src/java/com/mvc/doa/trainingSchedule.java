@@ -47,7 +47,8 @@ public class trainingSchedule {
             PreparedStatement prpst=connection.prepareStatement("insert into tblAgentTraining   values(?,?,?,?,?,?)");
          //st=connection.createStatement();
          //rs=st.executeUpdate("insert into tblAgentTraining   values(?,?,?,?,?,?)");
-          prpst.setInt(1,ATrsc.getTrainingID());
+         // prpst.setInt(1,ATrsc.getTrainingID());
+           //  prpst.setString(1,ATrsc.getTrainingID());
           prpst.setString(2,ATrsc.getBranch());
           prpst.setString(3,ATrsc.getVenue());
           prpst.setString(4, ATrsc.getStdate());

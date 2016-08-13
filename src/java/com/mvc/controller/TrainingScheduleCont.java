@@ -82,14 +82,16 @@ public class TrainingScheduleCont extends HttpServlet {
         String action=request.getParameter("action");
         if(action.equalsIgnoreCase("delete")){
             forword=lIST_Training;
-            int tid=Integer.parseInt(request.getParameter("tid"));
-            //String tid=request.getParameter("tid");
+            //int tid=Integer.parseInt(request.getParameter("tid"));
+            String tid=request.getParameter("tid");
             tdao.deleteTraining(tid);
             request.setAttribute("Trainings", tdao.getallTrainings());
         }
         if(action.equalsIgnoreCase("edit")){
             forword=INSERT_OR_EDIT;
-            int tid=Integer.parseInt(request.getParameter("tid"));
+            //int tid=Integer.parseInt(request.getParameter("tid"));
+            String tid=null;
+            tid=request.getParameter("tid");
             //TrainingDAO
            AgentTrainingSchedule ats=tdao.getTrainingById(tid);
            request.setAttribute("Training", ats);
@@ -168,12 +170,14 @@ String tid1=request.getParameter("tid");
                */
         AgentTrainingSchedule ats=new AgentTrainingSchedule();
         //ats.setTrainingID( Integer.parseInt(request.getParameter("tid")));
+        ats.setTrainingID(request.getParameter("tid"));
         ats.setBranch(request.getParameter("bra"));
         ats.setVenue(request.getParameter("venu"));
         ats.setStdate(request.getParameter("stdate"));
         ats.setEddate((request.getParameter("endate")));
         ats.setRemarks(request.getParameter("remark"));
-        String tid=request.getParameter("tid");
+        String tid = null;
+            tid = request.getParameter(tid);
             //String tid=(request.getParameter(Integer.toString("tid")));
         if( tid == null || tid.isEmpty() )
         { System.out.println("test on up");
@@ -181,7 +185,8 @@ String tid1=request.getParameter("tid");
                     System.out.println("test on downt");
         }
         else {
-            ats.setTrainingID(Integer.parseInt(tid));
+           // ats.setTrainingID(Integer.parseInt(tid));
+             ats.setTrainingID(tid);
             tdao.updateTraining(ats);
         }
         RequestDispatcher view = request.getRequestDispatcher( lIST_Training );

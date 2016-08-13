@@ -14,8 +14,8 @@ import com.mvc.bean.AgentTrainingSchedule;
 public interface TrainingDAO {
     
     public void addTraining(AgentTrainingSchedule ats);
-    public void deleteTraining(int tid);
+    public void deleteTraining(String tid);
     public void updateTraining(AgentTrainingSchedule ats);
     public List<AgentTrainingSchedule> getallTrainings();
-    public AgentTrainingSchedule getTrainingById(int tid);
+    public AgentTrainingSchedule getTrainingById(String tid);
 }

@@ -10,7 +10,8 @@ package com.mvc.bean;
  * @author saurav.paudel
  */
 public class AgentTrainingSchedule {
-    private int trainingID;
+    //private int trainingID;
+    private String trainingID;
     private String branch;
     private String venue;
     private String stdate;
@@ -23,14 +24,15 @@ public class AgentTrainingSchedule {
     /**
      * @return the trainingID
      */
-    public int getTrainingID() {
+    public String getTrainingID() {
         return trainingID;
     }
 
     /**
      * @param trainingID the trainingID to set
      */
-    public void setTrainingID(int trainingID) {
+   // public void setTrainingID(int trainingID) {
+     public void setTrainingID(String trainingID) {
         this.trainingID = trainingID;
     }
 
@@ -104,7 +106,7 @@ public class AgentTrainingSchedule {
         this.remarks = remarks;
     }
 
-    public AgentTrainingSchedule(int trainingID, String branch, String venue, String stdate, String eddate, String remarks) {
+    public AgentTrainingSchedule(String trainingID, String branch, String venue, String stdate, String eddate, String remarks) {
         this.trainingID = trainingID;
         this.branch = branch;
         this.venue = venue;
