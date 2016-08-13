@@ -131,7 +131,7 @@ public class TraingDaoImplement implements TrainingDAO {
                 ResultSet rs=ppds.executeQuery();
                 while(rs.next()){
                     //ats.setTrainingID(rs.getInt(tid));
-                    ats.setTrainingID(rs.getString(tid));
+                    ats.setTrainingID(rs.getString("tid"));
                     ats.setBranch(rs.getString("branch"));
                     ats.setVenue(rs.getString("Venu"));
                     ats.setStdate(rs.getString("StartDate"));

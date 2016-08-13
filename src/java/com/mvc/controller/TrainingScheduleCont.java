@@ -83,15 +83,19 @@ public class TrainingScheduleCont extends HttpServlet {
         if(action.equalsIgnoreCase("delete")){
             forword=lIST_Training;
             //int tid=Integer.parseInt(request.getParameter("tid"));
-            String tid=request.getParameter("tid");
+            //String tid=request.getParameter("tid");
+            String tid=null;
+                    tid=request.getParameter(tid);
+            System.out.println("ACTion + id 1= "+action +tid);
             tdao.deleteTraining(tid);
+                        System.out.println("ACTion + id 2= "+action +tid);
             request.setAttribute("Trainings", tdao.getallTrainings());
         }
         if(action.equalsIgnoreCase("edit")){
             forword=INSERT_OR_EDIT;
             //int tid=Integer.parseInt(request.getParameter("tid"));
             String tid=null;
-            tid=request.getParameter("tid");
+            tid=request.getParameter(tid);
             //TrainingDAO
            AgentTrainingSchedule ats=tdao.getTrainingById(tid);
            request.setAttribute("Training", ats);
@@ -168,6 +172,11 @@ String tid1=request.getParameter("tid");
                 System.out.println("EXCEPTION:-"+ex);
             }
                */
+                String tid2=request.getParameter("tid");
+                String brn2=request.getParameter("brn");
+                String ven2=request.getParameter("venu");
+                int t2=Integer.parseInt(tid2);
+                System.out.println("Data From Form are 2:"+tid2+brn2+ven2+tid2);
         AgentTrainingSchedule ats=new AgentTrainingSchedule();
         //ats.setTrainingID( Integer.parseInt(request.getParameter("tid")));
         ats.setTrainingID(request.getParameter("tid"));
