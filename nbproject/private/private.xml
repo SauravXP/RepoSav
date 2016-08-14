@@ -3,9 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/web/actkar/listTraining1.jsp</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/src/java/com/mvc/bean/AgentTrainingSchedule.java</file>
             <file>file:/D:/JAVA/JavaProjects/JspMVC/web/Home.jsp</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/src/java/com/mvc/util/DBConnection.java</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/web/actkar/trainingDetails.jsp</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/src/java/com/mvc/doa/LoginDoa.java</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/web/WEB-INF/web.xml</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/src/java/com/mvc/doa/TrainingDAO.java</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/src/java/com/mvc/doa/TraingDaoImplement.java</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/web/actkar/listTraining.jsp</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/src/java/com/mvc/doa/trainingSchedule.java</file>
+            <file>file:/D:/JAVA/JavaProjects/JspMVC/src/java/com/mvc/controller/TrainingScheduleCont.java</file>
             <file>file:/D:/JAVA/JavaProjects/JspMVC/src/java/com/mvc/bean/LoginBean.java</file>
-            <file>file:/D:/JAVA/JavaProjects/JspMVC/nbproject/build-impl.xml</file>
         </group>
     </open-files>
 </project-private>
