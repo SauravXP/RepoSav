@@ -4,7 +4,7 @@
     Author     : alpha
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.mvc.bean.AgentTrainingSchedule" %>
   <%@page import="com.mvc.doa.TraingDaoImplement"%>
 <%@page import="com.mvc.bean.AgentTrainingSchedule"%>
@@ -100,7 +100,7 @@
                      
                             <div class="form-group col-xs-12">
                                 <label class="control-label col-sm-4 small" for="tid">Training ID:<sup>*</sup></label>
-            <div class="col-sm-1 small"><input type="text" name="tid" class="agtput" id="tid" required="" Value="<c:out value="${train.trainingID}" />" placeholder="Training ID">
+            <div class="col-sm-1 small"><input type="text" name="tid" class="agtput" id="tid" required="" Value="<c:out value="${Training.trainingID}" />" placeholder="Training ID">
                 <span class="help-block"></span>
             </div>
             
@@ -108,35 +108,35 @@
                          
             <div class="form-group col-xs-12">
             <label class="control-label col-sm-4 small" for="brn">Branch</label>
-            <div class="col-sm-1 small"><input type="text" name="brn" class="agtput" id="brn" required="" Value="<c:out value="${train.branch}" />" placeholder="Branch">
+            <div class="col-sm-1 small"><input type="text" name="brn" class="agtput" id="brn" required="" Value="<c:out value="${Training.branch}" />" placeholder="Branch">
                 <span class="help-block"></span>
             </div>
             </div>
             
             <div class="form-group col-xs-12">
             <label class="control-label col-sm-4 small" for="venu">Training Venue</label>
-            <div class="col-sm-1 small"><input type="text" name="venu" class="agtput" id="venu" value="<c:out value="${train.venue}" />" required="" placeholder="Venue">
+            <div class="col-sm-1 small"><input type="text" name="venu" class="agtput" id="venu" value="<c:out value="${Training.venue}" />" required="" placeholder="Venue">
                 <span class="help-block"></span>
             </div>
             </div>
                             
             <div class="form-group col-xs-12">
             <label class="control-label col-sm-4 small" for="stdate">Start Date</label>
-            <div class="col-sm-1 small"><input type="text" name="stdate" class="agtput" id="stdate" value="<c:out value="${train.stdate}" />" required="" placeholder="01/01/2016">
+            <div class="col-sm-1 small"><input type="text" name="stdate" class="agtput" id="stdate" value="<c:out value="${Training.stdate}" />" required="" placeholder="01/01/2016">
                 <span class="help-block"></span>
             </div>
             </div>
             
             <div class="form-group col-xs-12">
             <label class="control-label col-sm-4 small" for="endate">End Date</label>
-            <div class="col-sm-1 small"><input type="text" name="endate" class="agtput" id="endate"  value="<c:out value="${train.eddate}" />" placeholder="01/01/2017">
+            <div class="col-sm-1 small"><input type="text" name="endate" class="agtput" id="endate"  value="<c:out value="${Training.eddate}" />" placeholder="01/01/2017">
                 <span class="help-block"></span>
             </div>
             </div>                
                             
                             
                             <div class="form-group">
-                                <input type="text" name="remark" id="remark"  value="<c:out value="${train.remark}" />" class="form-control input-sm" placeholder="Remarks">
+                                <input type="text" name="remark" id="remark"  value="<c:out value="${Training.remarks}" />" class="form-control input-sm" placeholder="Remarks">
                             </div>
 
                             
