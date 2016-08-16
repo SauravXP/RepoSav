@@ -72,6 +72,7 @@ public class TraingDaoImplement implements TrainingDAO {
     @Override
     public void updateTraining(AgentTrainingSchedule ats) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("COLMNAME"+ats.getTrainingID());
         try{
             String Query="update tblAgentTrainingSchedule set Branch=?,Venue=?,StartDate=?,EndDate=?,Remarks=? where TrainingID=?";
             PreparedStatement   ppds=conn.prepareStatement(Query);

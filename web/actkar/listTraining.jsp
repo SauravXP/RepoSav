@@ -43,6 +43,9 @@
 }
         </style>
 
+        
+        
+        
     </head>
     <body>
         <div class="content">
@@ -89,8 +92,8 @@
                     <td><c:out value="${train.eddate}" /></td>
                     <td><c:out value="${train.remarks}" /></td>
                     <td><a  class="btn btn-success" href="TrainingScheduleCont.gar?action=edit&trainingID=<c:out value="${train.trainingID }"/>">Update</a>||<a
-                  class="btn btn-danger" href="TrainingScheduleCont.gar?action=delete&trainingID=<c:out value="${train.trainingID }"/>">Delete</a></td>
-                 <!--   <td><a href="TrainingScheduleCont.gar?action=delete&trainingID=<c:out value="${train.trainingID }"/>">Delete</a></td> -->
+                  name="remove_levels" id="delete" class="btn btn-danger"  href="TrainingScheduleCont.gar?action=delete&trainingID=<c:out value="${train.trainingID }"/>">Delete</a></td>
+                
                 </tr>
             </c:forEach>
         </tbody>
@@ -99,12 +102,42 @@
     </p>
     </table>
         </div><!--div table responsive END -->
+        
+        <!-- START FOR MODAL   -->
+        <div id="confirm" class="modal hide fade">
+            <div class="modal-body">
+                Are you sure?
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary" id="delete">Delete</button>
+                <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+            </div>
+        </div>
+        <!-- END FOR MODAL -->
+        
+        
+        
             </div>
         </div>
         <script>
             $(document).ready(function() {
     $('#dtTrainDetails').DataTable();
 } );
+
+$('button[name="remove_levels"]').on('click', function(e){
+    var $form=$(this).closest('form');
+    e.preventDefault();
+    $('#confirm').modal({ backdrop: 'static', keyboard: false })
+        .one('click', '#delete', function (e) {
+            $form.trigger('submit');
+        });
+});
+
+
+
+
+
+
         </script>
     </body>
     

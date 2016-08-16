@@ -85,17 +85,20 @@ public class TrainingScheduleCont extends HttpServlet {
             //int tid=Integer.parseInt(request.getParameter("tid"));
             //String tid=request.getParameter("tid");
             String tid=null;
-                    tid=request.getParameter(tid);
+                    tid=request.getParameter("trainingID");
             System.out.println("ACTion + id 1= "+action +tid);
             tdao.deleteTraining(tid);
                         System.out.println("ACTion + id 2= "+action +tid);
             request.setAttribute("Trainings", tdao.getallTrainings());
         }
         if(action.equalsIgnoreCase("edit")){
+            
             forword=INSERT_OR_EDIT;
             //int tid=Integer.parseInt(request.getParameter("tid"));
+            
             String tid=null;
-            tid=request.getParameter(tid);
+            tid=request.getParameter("trainingID");
+            
             //TrainingDAO
            AgentTrainingSchedule ats=tdao.getTrainingById(tid);
            request.setAttribute("Training", ats);
