@@ -16,6 +16,10 @@
         <servlet-name>TrainingScheduleCont</servlet-name>
         <servlet-class>com.mvc.controller.TrainingScheduleCont</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AgtSuperCont</servlet-name>
+        <servlet-class>com.mvc.controller.AgtSuperCont</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>TrainingScheduleCont</servlet-name>
         <url-pattern>/actkar/TrainingScheduleCont.gar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AgtSuperCont</servlet-name>
+        <url-pattern>/actkar/AgtSuperCont.gar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

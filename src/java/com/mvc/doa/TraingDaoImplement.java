@@ -14,6 +14,7 @@ import java.util.List;
 
 import com.mvc.bean.AgentTrainingSchedule;
 import com.mvc.util.DBConnection;
+import java.sql.Date;
 import java.sql.Statement;
 
 /**
@@ -39,12 +40,11 @@ public class TraingDaoImplement implements TrainingDAO {
             ppds.setString(1, ats.getTrainingID());
             ppds.setString(2, ats.getBranch());
             ppds.setString(3, ats.getVenue());
-            ppds.setString(4, ats.getStdate());
-            ppds.setString(5, ats.getEddate());
+            ppds.setDate(4, (Date) new java.sql.Date(ats.getStdate().getTime()));
+            ppds.setDate(5,new java.sql.Date(ats.getEddate().getTime()));
             ppds.setString(6, ats.getRemarks());
-            //int executeUpdate;
-            //executeUpdate = 
-            ppds.executeUpdate();
+            int executeUpdate;
+            executeUpdate = ppds.executeUpdate();
             ppds.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,8 +78,8 @@ public class TraingDaoImplement implements TrainingDAO {
             PreparedStatement   ppds=conn.prepareStatement(Query);
             ppds.setString(1,ats.getBranch());
             ppds.setString(2,ats.getVenue());
-            ppds.setString(3,ats.getStdate());
-            ppds.setString(4,ats.getEddate());
+            ppds.setDate(3, new java.sql.Date(ats.getStdate().getTime()));
+            ppds.setDate(4, new java.sql.Date(ats.getEddate().getTime()));
             ppds.setString(5,ats.getRemarks());
             ppds.setString(6, ats.getTrainingID());
             ppds.executeUpdate();
@@ -104,8 +104,8 @@ public class TraingDaoImplement implements TrainingDAO {
                 ats.setTrainingID(rs.getString("TrainingID"));
                 ats.setBranch(rs.getString("Branch"));
                 ats.setVenue(rs.getString("Venue"));
-                ats.setStdate(rs.getString("StartDate"));
-                ats.setEddate(rs.getString("EndDate"));
+                ats.setStdate(rs.getDate("StartDate"));
+                ats.setEddate(rs.getDate("EndDate"));
                 ats.setRemarks(rs.getString("Remarks"));
                 atsa.add(ats);
             }
@@ -125,7 +125,7 @@ public class TraingDaoImplement implements TrainingDAO {
 
             try{
                 //String Query="SELECT TrainingID,Branch,Venue,StartDate=convert(varchar(12),StartDate,101),EndDate=convert(varchar(12),EndDate,101) From tblAgentTrainingSchedule where TrainingID=?";
-                String Query="SELECT TrainingID,Branch,Venue,StartDate,EndDate From tblAgentTrainingSchedule where TrainingID=?";
+                String Query="SELECT TrainingID,Branch,Venue,StartDate,EndDate,Remarks From tblAgentTrainingSchedule where TrainingID=?";
             try (PreparedStatement ppds = conn.prepareStatement(Query)) {
                 //ppds.setInt(1, tid);
                 ppds.setString(1,tid);
@@ -133,10 +133,10 @@ public class TraingDaoImplement implements TrainingDAO {
                 while(rs.next()){
                     //ats.setTrainingID(rs.getInt(tid));
                     ats.setTrainingID(rs.getString("TrainingID"));
-                    ats.setBranch(rs.getString("branch"));
+                    ats.setBranch(rs.getString("Branch"));
                     ats.setVenue(rs.getString("Venue"));
-                    ats.setStdate(rs.getString("StartDate"));
-                    ats.setEddate(rs.getString("EndDate"));
+                    ats.setStdate(rs.getDate("StartDate"));
+                    ats.setEddate(rs.getDate("EndDate"));
                     ats.setRemarks(rs.getString("Remarks"));
                     
                     
@@ -159,5 +159,10 @@ public class TraingDaoImplement implements TrainingDAO {
    // public void deleteTraining(int tid) {
      //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     //}
+
+    @Override
+    public Object getTrainingALLPARAM(String tid, String ven, String stdate, String eddate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

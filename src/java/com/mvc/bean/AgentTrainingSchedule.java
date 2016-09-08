@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mvc.bean;
-
+import java.util.Date;
 /**
  *
  * @author saurav.paudel
@@ -14,8 +14,8 @@ public class AgentTrainingSchedule {
     private String trainingID;
     private String branch;
     private String venue;
-    private String stdate;
-    private String eddate;
+    private Date stdate;
+    private Date eddate;
     private String remarks;
 
     public AgentTrainingSchedule() {
@@ -67,28 +67,28 @@ public class AgentTrainingSchedule {
     /**
      * @return the stdate
      */
-    public String getStdate() {
+    public Date getStdate() {
         return stdate;
     }
 
     /**
      * @param stdate the stdate to set
      */
-    public void setStdate(String stdate) {
+    public void setStdate(Date stdate) {
         this.stdate = stdate;
     }
 
     /**
      * @return the eddate
      */
-    public String getEddate() {
+    public Date getEddate() {
         return eddate;
     }
 
     /**
      * @param eddate the eddate to set
      */
-    public void setEddate(String eddate) {
+    public void setEddate(Date eddate) {
         this.eddate = eddate;
     }
 
@@ -106,7 +106,7 @@ public class AgentTrainingSchedule {
         this.remarks = remarks;
     }
 
-    public AgentTrainingSchedule(String trainingID, String branch, String venue, String stdate, String eddate, String remarks) {
+    public AgentTrainingSchedule(String trainingID, String branch, String venue, Date stdate, Date eddate, String remarks) {
         this.trainingID = trainingID;
         this.branch = branch;
         this.venue = venue;
