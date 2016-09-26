@@ -11,6 +11,7 @@ import java.sql.Statement;
 
 import com.mvc.bean.AgentTrainingSchedule;
 import com.mvc.util.DBConnection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 /**
  *
@@ -51,8 +52,8 @@ public class trainingSchedule {
            //  prpst.setString(1,ATrsc.getTrainingID());
           prpst.setString(2,ATrsc.getBranch());
           prpst.setString(3,ATrsc.getVenue());
-          prpst.setString(4, ATrsc.getStdate());
-          prpst.setString(5, ATrsc.getEddate());
+          //prpst.setDate(4, (Date) ATrsc.getStdate());
+         // prpst.setDate(5, (Date) ATrsc.getEddate());
           prpst.setString(6, ATrsc.getRemarks());          
           prpst.executeUpdate();
           

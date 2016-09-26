@@ -18,4 +18,7 @@ public interface TrainingDAO {
     public void updateTraining(AgentTrainingSchedule ats);
     public List<AgentTrainingSchedule> getallTrainings();
     public AgentTrainingSchedule getTrainingById(String tid);
+
+    public Object getTrainingALLPARAM(String tid, String ven, String stdate, String eddate);
+    
 }

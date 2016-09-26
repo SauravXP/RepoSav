@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/LABWORK/ProjSP/RepoSav/src/java/com/mvc/doa/TraingDaoImplement.java</file>
-            <file>file:/D:/LABWORK/ProjSP/RepoSav/web/actkar/trainingDetails.jsp</file>
-            <file>file:/D:/LABWORK/ProjSP/RepoSav/web/actkar/listTraining.jsp</file>
-            <file>file:/D:/LABWORK/ProjSP/RepoSav/src/java/com/mvc/controller/TrainingScheduleCont.java</file>
-            <file>file:/D:/LABWORK/ProjSP/RepoSav/src/java/com/mvc/doa/TrainingDAO.java</file>
+            <file>file:/D:/JAVA/RepoSav/src/java/com/mvc/util/DBConnection.java</file>
+            <file>file:/D:/JAVA/RepoSav/src/java/com/mvc/doa/LoginDoa.java</file>
+            <file>file:/D:/JAVA/RepoSav/src/java/com/mvc/controller/AgtSuperCont.java</file>
+            <file>file:/D:/JAVA/RepoSav/src/java/com/mvc/controller/DataView.java</file>
+            <file>file:/D:/JAVA/RepoSav/src/java/com/mvc/controller/TrainingScheduleCont.java</file>
+            <file>file:/D:/JAVA/RepoSav/src/java/com/mvc/bean/AgentTrainingSchedule.java</file>
+            <file>file:/D:/JAVA/RepoSav/web/actkar/agtSuperiorsDetails.jsp</file>
         </group>
     </open-files>
 </project-private>

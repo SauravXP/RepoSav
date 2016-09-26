@@ -13,6 +13,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
         TraingDaoImplement tdi=new TraingDaoImplement();
             //tdi.getallTrainings();
@@ -30,6 +31,13 @@
                 <script type="text/javascript" src="/js/jquery-1.11.2.min.js"> </script>
         <script type="text/javascript" src="/agt/dataTables.bootstrap.min.js"> </script>
         <script type="text/javascript" src="/agt/dataTables.responsive.min.js"> </script>
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+       
+        <link rel="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+        <link rel="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
+        
+        
         <style>
            
             .table-striped > tbody > tr:nth-of-type(odd) {
@@ -53,9 +61,8 @@
                 <h1 class="text-center">.
                 </h1>
         <div class="table-responsive">
-    <table id="dtTrainDetails" class="table table-hover table-inverse table-striped table-bordered" cellspacing="0" width="100%">
+    <table id="dtTrainDetails" class="table table-hover table-inverse table-striped table-bordered" cellspacing="0"  width="100%">
         <thead>
-            <tr>
                 <th>T.ID</th>
                 <th>Branch</th>
                 <th>Venue</th>
@@ -84,13 +91,14 @@
                 System.out.println(lst);
             %> --%>
           <c:forEach items="${Trainings}" var="train">
-                <tr>  <!-- datas from bean(AgentTrainingSchedule.java) -->
+                <tr >  <!-- datas from bean(AgentTrainingSchedule.java) -->
                     <td><c:out value="${train.trainingID}" /></td>
                     <td><c:out value="${train.branch}" /></td>
-                    <td><c:out value="${train.venue}" /></td>
+                    <td> ${train.venue.substring(0,5)}... </td>
                     <td><c:out value="${train.stdate}" /></td>
                     <td><c:out value="${train.eddate}" /></td>
-                    <td><c:out value="${train.remarks}" /></td>
+                    <td>${train.remarks.substring(0,5)}...</td>
+                    <td><button class="btn btn-success" onclick="if(!confirm('Do you want to Update the Data ?')) return false;"><a href="TrainingScheduleCont.gar?action=edit&trainingID=<c:out value="${train.trainingID }"/> ">Update</a></button>||<button class="btn btn-danger"  name="remove_levels" onclick="if(!confirm('Do you want to Delete the Data ?')) return false;"><a href="TrainingScheduleCont.gar?action=delete&trainingID=<c:out value="${train.trainingID }"/>">Delete</a></button> </td>
                     <td><a  class="btn btn-success" href="TrainingScheduleCont.gar?action=edit&trainingID=<c:out value="${train.trainingID }"/>">Update</a>||<a
                   name="remove_levels" id="delete" class="btn btn-danger"  href="TrainingScheduleCont.gar?action=delete&trainingID=<c:out value="${train.trainingID }"/>">Delete</a></td>
                 
@@ -119,19 +127,44 @@
         
             </div>
         </div>
+          
+          <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+          <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
+            <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.12.3.js"></script>
+         <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
         <script>
-            $(document).ready(function() {
-    $('#dtTrainDetails').DataTable();
+
+
+
+
+
+$(document).ready(function() {
+    $('#dtTrainDetails').DataTable( {
+        responsive: {
+            details: {
+                display: $.fn.dataTable.Responsive.display.modal( {
+                    header: function ( row ) {
+                        var data = row.data();
+                        return 'Details for '+data[0]+' '+data[1];
+                    }
+                } ),
+                renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
+                    tableClass: 'table'
+                } )
+            }
+        }
+    } );
 } );
 
-$('button[name="remove_levels"]').on('click', function(e){
-    var $form=$(this).closest('form');
-    e.preventDefault();
+
+    <%-- FOR DELETE CONFIRM --%>
     $('#confirm').modal({ backdrop: 'static', keyboard: false })
         .one('click', '#delete', function (e) {
             $form.trigger('submit');
         });
-});
+
 
 
 

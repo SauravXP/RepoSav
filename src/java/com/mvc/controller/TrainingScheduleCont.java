@@ -11,10 +11,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.util.Date;
 import com.mvc.bean.AgentTrainingSchedule;
 import com.mvc.doa.TrainingDAO;
 import com.mvc.doa.TraingDaoImplement;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -33,6 +35,7 @@ public class TrainingScheduleCont extends HttpServlet {
     private static final long serialVersionUID = 1L;
     public static final String lIST_Training = "/actkar/listTraining.jsp";
     public static final String INSERT_OR_EDIT = "/actkar/trainingDetails.jsp";
+    public static final String ADDTRAININGS="/actkar/trainingDetails.jsp";
 
     public TrainingScheduleCont() {
         tdao = new TraingDaoImplement();
@@ -78,7 +81,37 @@ public class TrainingScheduleCont extends HttpServlet {
             throws ServletException, IOException {
 
         String forword = "";
-        String action = request.getParameter("action");
+        if(request.getParameter("action")!=null){
+            String action=request.getParameter("action");
+            if(action.equalsIgnoreCase("delete")){
+                String tid=null;
+                tid=request.getParameter("trainingID");
+                tdao.deleteTraining(tid);
+                forword=lIST_Training;
+                request.setAttribute("Trainings", tdao.getallTrainings());
+            }else if (action.equalsIgnoreCase("edit")){
+                forword=INSERT_OR_EDIT;
+                String tid=null;
+                tid=request.getParameter("trainingID");
+                 AgentTrainingSchedule ats = tdao.getTrainingById(tid);
+                 request.setAttribute("Trainings", ats);
+            }else if(action.equalsIgnoreCase("listTraining")){
+                forword=lIST_Training;
+                request.setAttribute("Trainings", tdao.getallTrainings());
+            }else{
+                forword=ADDTRAININGS;
+                //request.setAttribute("Trainings", tdao);
+            }
+        }
+        else {
+                forword=lIST_Training;
+                request.setAttribute("Trainings", tdao.getallTrainings());
+        }
+        RequestDispatcher view=request.getRequestDispatcher(forword);
+        view.forward(request, response);
+        
+    }
+       /* String action = request.getParameter("action");
         if (action.equalsIgnoreCase("delete")) {
             forword = lIST_Training;
             //int tid=Integer.parseInt(request.getParameter("tid"));
@@ -91,17 +124,17 @@ public class TrainingScheduleCont extends HttpServlet {
             request.setAttribute("Trainings", tdao.getallTrainings());
         }
         else if (action.equalsIgnoreCase("edit")) {
-                String tida = null;
+            String tida = null;
             tida = request.getParameter("trainingID");
-            System.out.println("ID SELECTED:-"+tida);
+            System.out.println("ID SELECTED:-" + tida);
             forword = INSERT_OR_EDIT;
             //int tid=Integer.parseInt(request.getParameter("tid"));
-
-            String tid =  request.getParameter("trainingID");
-
+            String tid = request.getParameter("trainingID");
+            System.out.println("IDKUNHO"+request.getParameter("trainingID"));
             //TrainingDAO
             AgentTrainingSchedule ats = tdao.getTrainingById(tid);
-            request.setAttribute("Training", ats);
+           // request.setAttribute("Training", ats);
+             request.setAttribute("Trainings", ats);
         } else if (action.equalsIgnoreCase("insert")) {
             // System.out.println("TESTS");
             forword = INSERT_OR_EDIT;
@@ -110,10 +143,13 @@ public class TrainingScheduleCont extends HttpServlet {
             forword = lIST_Training;
             request.setAttribute("Trainings", tdao.getallTrainings());
         }
+        
         RequestDispatcher view = request.getRequestDispatcher(forword);
         view.forward(request, response);
-
-    }
+            */
+            
+        
+    //}
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -174,20 +210,36 @@ public class TrainingScheduleCont extends HttpServlet {
         String ven2 = request.getParameter("venu");
         int t2 = Integer.parseInt(tid2);
         System.out.println("Data From Form are 2:" + tid2 + brn2 + ven2 + tid2);*/
+        /*
+        request.parameter should take the value from the traningDetails form name
+        */
         AgentTrainingSchedule ats = new AgentTrainingSchedule();
-        //ats.setTrainingID( Integer.parseInt(request.getParameter("tid")));
+        Date stdate;
+        stdate = new Date(request.getParameter("stdate"));
+        Date endate;
+        endate = new Date(request.getParameter("endate"));
         ats.setTrainingID(request.getParameter("tid"));
         ats.setBranch(request.getParameter("brn"));
         ats.setVenue(request.getParameter("venu"));
-        ats.setStdate(request.getParameter("stdate"));
-        ats.setEddate((request.getParameter("endate")));
+        //ats.setStdate(request.getParameter("stdate"));
+        //ats.setEddate((request.getParameter("endate")));
+        ats.setStdate(stdate);
+        ats.setEddate(endate);
         ats.setRemarks(request.getParameter("remark"));
         String tid = null;
-        tid = request.getParameter(tid);
+      tid = request.getParameter("tid");
+       //String tid = request.getParameter("tid");
         //String tid=(request.getParameter(Integer.toString("tid")));
+       System.out.println("here ON POST1:"+tid);
         if (tid == null || tid.isEmpty()) {
+            System.out.println("here ON POST"+tid);
+//          if (tid != null && !tid.isEmpty()) {   
             System.out.println("test on upthand add");
+            try{
             tdao.addTraining(ats);
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
             System.out.println("test on downt add");
         } else {
             // ats.setTrainingID(Integer.parseInt(tid));
