@@ -45,6 +45,9 @@ public class TraingDaoImplement implements TrainingDAO {
             ppds.setString(6, ats.getRemarks());
             int executeUpdate;
             executeUpdate = ppds.executeUpdate();
+            if(executeUpdate>0){
+                System.out.println("A New User was Inserted!!"+ats.getTrainingID()+ats.getVenue());
+            }
             ppds.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -60,7 +63,10 @@ public class TraingDaoImplement implements TrainingDAO {
             //ppds.setInt(1, tid);
             //ppds.setString(1, Integer.toString(tid));
             ppds.setString(1,tid);
-            ppds.executeUpdate();
+            int rowsDeleted=ppds.executeUpdate();
+            if(rowsDeleted>0){
+                System.out.println("Traiing Was Deleted Successfully!!!!");
+            }
             ppds.close();
 
         } catch (SQLException ex) {
