@@ -42,7 +42,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AgentDtlCont</servlet-name>
+<<<<<<< HEAD
         <url-pattern>/actkar/AgtDtlCont.gar</url-pattern>
+=======
+        <url-pattern>/AgentDtlCont</url-pattern>
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
     </servlet-mapping>
     <session-config>
         <session-timeout>

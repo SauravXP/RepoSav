@@ -92,7 +92,10 @@ position:relative; top: 50px; right:-50px;
             <div role="tabpanel" class="tab-pane active" id="personal">
              Agent's Personal Details
                 <hr>
+<<<<<<< HEAD
         <form method="Post" action="AgtDtlCont.gar" name="frmAgtDetails">
+=======
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
            <div class="form-group col-xs-12">
             <label class="control-label col-sm-2" for="agentcode">Agentcode</label>
             <div class="col-sm-1"><input type="text" name="agcode" class="agtput" id="agentcode" required="" placeholder="AgentCode">
@@ -111,19 +114,32 @@ position:relative; top: 50px; right:-50px;
                 
            <div class="form-group col-xs-12">
             <label class="control-label col-sm-2" for="name">Name</label>
+<<<<<<< HEAD
             <div class="col-sm-1"><input type="text" name="name" class="agtput" id="name" placeholder="Full Name">
+=======
+            <div class="col-sm-1"><input type="text" name="fname" class="agtput" id="name" placeholder="Full Name">
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
                 <span class="help-block"></span>
             </div>
             </div>           
              
          <div class="form-group col-xs-12">
+<<<<<<< HEAD
             <label class="control-label col-sm-2" for="nepname">NepName</label>
             <div class="col-sm-1"><input type="text" name="nepname" class="agtput" id="nepname" placeholder="NepaliName">
+=======
+            <label class="control-label col-sm-2" for="name">NepName</label>
+            <div class="col-sm-1"><input type="text" name="nepname" class="agtput" id="name" placeholder="NepaliName">
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
                 <span class="help-block"></span>
             </div>
             </div>      
         <div class="form-group col-xs-12">
+<<<<<<< HEAD
             <label class="control-label col-sm-2" for="dob">DOB</label>
+=======
+            <label class="control-label col-sm-2" for="name">DOB</label>
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
             <div class="col-sm-6"><input type="text" name="dob" class="agtput" id="dob" placeholder="DateOfBirth">
                 <span class="help-block"></span>
             </div>
@@ -154,9 +170,15 @@ position:relative; top: 50px; right:-50px;
             <label class="control-label col-sm-2" for="anchal">Anchal</label>
             <div class="form-group col-xs-8 ">
             <select class="form-control selt input-group" >
+<<<<<<< HEAD
                 <option value="" selected="selected" id="anchal" class="selt" >Anchal</option>
               <option value="M">Mechi</option>
               <option value="K">Koshi</option>
+=======
+                <option value="" selected="selected" id="gender" class="selt" >Anchal</option>
+              <option value="M">Mechi</option>
+              <option value="F">Koshi</option>
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
             </select>
              <span class="help-block"></span>
         </div> 
@@ -168,7 +190,11 @@ position:relative; top: 50px; right:-50px;
             <select class="form-control selt input-group" >
                 <option value="" selected="selected" id="district" class="selt" >District</option>
               <option value="M">Mechi</option>
+<<<<<<< HEAD
               <option value="K">Koshi</option>
+=======
+              <option value="F">Koshi</option>
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
             </select>
              <span class="help-block"></span>
         </div> 
@@ -215,6 +241,7 @@ position:relative; top: 50px; right:-50px;
             <div class="col-sm-6"><input type="text" name="occ" class="agtput" id="occu" placeholder="Occupation">
                 <span class="help-block"></span>
             </div>
+<<<<<<< HEAD
     </div>  
 
 <div class="form-group col-xs-12">
@@ -223,6 +250,9 @@ position:relative; top: 50px; right:-50px;
                 <span class="help-block"></span>
             </div>
     </div>             
+=======
+    </div>                
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
                 
          <div class="form-group col-xs-12">
             <label class="control-label col-sm-2" for="fax">Fax</label>
@@ -293,12 +323,16 @@ position:relative; top: 50px; right:-50px;
                 <span class="help-block"></span>
             </div>
          </div>
+<<<<<<< HEAD
         <div class="form-group col-xs-12">
             <label class="control-label col-sm-2 small" for="sts">Status</label>
             <div class="col-sm-6 small"><input type="text" name="sts" class="agtput" id="sts" placeholder="Status.">
                 <span class="help-block"></span>
             </div>
          </div>       
+=======
+               
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
         <div class="form-group col-xs-12">
             <label class="control-label col-sm-2 small " for="acno">Acconut Number </label>
             <div class="col-sm-6 small"><input type="text" name="acno" class="agtput" id="acno" placeholder="Bank A\c No">
@@ -306,12 +340,20 @@ position:relative; top: 50px; right:-50px;
             </div>
          </div>
                
+<<<<<<< HEAD
    <!--     <div class="form-group col-xs-12">
+=======
+        <div class="form-group col-xs-12">
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
             <label class="control-label col-sm-2 small " for="bnkname">Bank Name</label>
             <div class="col-sm-6 small"><input type="text" name="bnkname" class="agtput" id="bnkname" placeholder="Bank Name">
                 <span class="help-block"></span>
             </div>
+<<<<<<< HEAD
          </div> -->
+=======
+         </div>
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
                
         <div class="form-group col-xs-12">
             <label class="control-label col-sm-2 small" for="licfrom">License From</label>
@@ -391,6 +433,7 @@ position:relative; top: 50px; right:-50px;
             </div>
          </div> 
         
+<<<<<<< HEAD
          AgentSelfDesignation:-
         <hr>      
          <div class="form-group col-xs-12">
@@ -420,6 +463,8 @@ position:relative; top: 50px; right:-50px;
         
         
         
+=======
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
         <!-- Nominee Panel Start from here -->
            <div class="col-md-5" style="margin-top: -530px; margin-left: 550px; " >
 				<div class="panel panel-primary ">
@@ -459,12 +504,20 @@ position:relative; top: 50px; right:-50px;
         
                         </hr>
                       <div class="form-group col-xs-6">
+<<<<<<< HEAD
                      <button type="submit" class="btn btn-success" type="submit">Save</button>
                      <button type="reset" class="btn btn-danger" type="reset" >Cancel</button>
                      <span class="help-block"></span>
                       
                     </div>
                         </form>      
+=======
+                     <button type="button" class="btn btn-success" type="submit">Save</button>
+                     <button type="button" class="btn btn-danger" type="reset" >Cancel</button>
+                     <span class="help-block"></span>
+                     
+                    </div>
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
             </div>
             
             

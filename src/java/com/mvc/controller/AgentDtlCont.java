@@ -12,14 +12,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import com.mvc.bean.AgentDetailsB;
 import com.mvc.doa.AgentDetailsDAOimple;
 import com.mvc.doa.AgtDetailsDAO;
+=======
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
 /**
  *
  * @author saurav.paudel
  */
 public class AgentDtlCont extends HttpServlet {
+<<<<<<< HEAD
     private AgtDetailsDAO tado;
     
     
@@ -32,6 +36,18 @@ public class AgentDtlCont extends HttpServlet {
     
     
     
+=======
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -75,6 +91,7 @@ public class AgentDtlCont extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< HEAD
        // processRequest(request, response);
        AgentDetailsB adb=new AgentDetailsB();
        String brn=request.getParameter("branch");
@@ -139,6 +156,9 @@ public class AgentDtlCont extends HttpServlet {
        System.out.println("DATATS"+brn +"-" +dbo +" " );
        
        tado.addAgentDetails(adb);
+=======
+        processRequest(request, response);
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
     }
 
     /**

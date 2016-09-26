@@ -31,6 +31,7 @@ public class AgentDetailsDAOimple implements AgtDetailsDAO{
     public void addAgentDetails(AgentDetailsB ads) {
         try{
           System.out.println("i am on InsertingData");
+<<<<<<< HEAD
           String qry="insert into tblAgent values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?" //18
                   + ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; //39
           PreparedStatement ppds=conn.prepareStatement(qry);
@@ -74,6 +75,50 @@ public class AgentDetailsDAOimple implements AgtDetailsDAO{
           ppds.setString(38,ads.getMunicipalityName() );
           ppds.setString(39,ads.getSalesCenter() );
           ppds.setInt(40,ads.getAgCode());
+=======
+          String qry="insert into tblAgent values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"
+                  + ",?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+          PreparedStatement ppds=conn.prepareStatement(qry);
+          ppds.setString(1,ads.getBranch());
+          ppds.setString(2, ads.getName());
+          ppds.setString(3,ads.getNepName() );
+          ppds.setString(4,ads.getNepName() );
+          ppds.setString(5,ads.getNepName() );
+          ppds.setString(6,ads.getNepName() );
+          ppds.setString(7,ads.getNepName() );
+          ppds.setString(8,ads.getNepName() );
+          ppds.setString(9,ads.getNepName() );
+          ppds.setString(10,ads.getNepName() );
+          ppds.setString(11,ads.getNepName() );
+          ppds.setString(12,ads.getNepName() );
+          ppds.setString(13,ads.getNepName() );
+          ppds.setString(14,ads.getNepName() );
+          ppds.setString(15,ads.getNepName() );
+          ppds.setString(16,ads.getNepName() );
+          ppds.setString(17,ads.getNepName() );
+          ppds.setString(18,ads.getNepName() );
+          ppds.setString(19,ads.getNepName() );
+          ppds.setString(20,ads.getNepName() );
+          ppds.setString(21,ads.getNepName() );
+          ppds.setString(22,ads.getNepName() );
+          ppds.setString(23,ads.getNepName() );
+          ppds.setString(24,ads.getNepName() );
+          ppds.setString(25,ads.getNepName() );
+          ppds.setString(26,ads.getNepName() );
+          ppds.setString(27,ads.getNepName() );
+          ppds.setString(28,ads.getNepName() );
+          ppds.setString(29,ads.getNepName() );
+          ppds.setString(30,ads.getNepName() );
+          ppds.setString(31,ads.getNepName() );
+          ppds.setString(32,ads.getNepName() );
+          ppds.setString(33,ads.getNepName() );
+          ppds.setString(34,ads.getNepName() );
+          ppds.setString(35,ads.getNepName() );
+          ppds.setString(36,ads.getNepName() );
+          ppds.setString(37,ads.getNepName() );
+          ppds.setString(38,ads.getNepName() );
+          ppds.setString(39,ads.getNepName() );
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
 
           int exeUpdate;
           exeUpdate=ppds.executeUpdate();
@@ -86,7 +131,11 @@ public class AgentDetailsDAOimple implements AgtDetailsDAO{
         }
         
         
+<<<<<<< HEAD
      //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+=======
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> c28deca749f98439e3f41c54385b41d3208c19e0
     }
 
     @Override
