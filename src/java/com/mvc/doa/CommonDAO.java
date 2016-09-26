@@ -23,4 +23,5 @@ public interface CommonDAO {
      */
     public List<CommonB>getAllDistrict();
     public ResultSet getAllAnchal1();
+    public String getACode(String Branch);
 }

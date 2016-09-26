@@ -7,6 +7,7 @@ package com.mvc.doa;
 import com.mvc.bean.AgentTrainingSchedule;
 import com.mvc.bean.CommonB;
 import com.mvc.util.DBConnection;
+import java.sql.CallableStatement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,6 +78,7 @@ public class CommonDaoImplements implements CommonDAO{
             String sqls="select Anchal from tblAnchal order by 1 ASC ";
             //st.executeQuery("select Anchal from tblAnchal");
             System.out.println("\nExecuting query: " + sqls);
+            getACode("51");
             ResultSet rs = null;
         try {
             rs = st.executeQuery(sqls);
@@ -116,4 +119,20 @@ public class CommonDaoImplements implements CommonDAO{
         return als;
             
         }
+        public String getACode(String Branch){
+         try{
+             String agcod=null;
+             CallableStatement cs=null;
+             cs=conn.prepareCall("{call dbo.sp_GetNewAgents(?,?)}");
+             cs.setString(1,"51");
+             cs.registerOutParameter(2, java.sql.Types.VARCHAR);
+             cs.execute();
+             System.out.println("IDS:-"+cs.getString(2));
+            return cs.getString(2) ;
+         }catch(SQLException sq){
+             sq.printStackTrace();
+         }
+            return null;
+        }
+       
 }

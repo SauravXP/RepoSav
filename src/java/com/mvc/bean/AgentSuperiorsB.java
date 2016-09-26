@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package com.mvc.bean;
-import java.text.SimpleDateFormat;
+//import java.text.DateFormat;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
 import java.util.Date;
 /** 
  *
@@ -12,7 +14,7 @@ import java.util.Date;
  */
 public class AgentSuperiorsB {
     private String Category;
-    private String Code;
+    private int Code;
     private String Branch;
     private String Name;
     private String NepName;
@@ -28,8 +30,13 @@ public class AgentSuperiorsB {
     private String SeniorManagerCode;
 
     public AgentSuperiorsB() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
+
+    //public AgentSuperiorsB() {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  //  }
 
     /**
      * @return the Category
@@ -48,14 +55,14 @@ public class AgentSuperiorsB {
     /**
      * @return the Code
      */
-    public String getCode() {
+    public int getCode() {
         return Code;
     }
 
     /**
      * @param Code the Code to set
      */
-    public void setCode(String Code) {
+    public void setCode(int Code) {
         this.Code = Code;
     }
 
@@ -151,10 +158,21 @@ public class AgentSuperiorsB {
     }
 
     /**
-     * @param QualifiyDate the QualifiyDate to set
+     * @param QualifyDate
+     * @throws java.text.ParseException
      */
-    public void setQualifiyDate(Date QualifiyDate) {
-        this.QualifyDate = QualifiyDate;
+    public void setQualifiyDate(Date QualifyDate) //throws ParseException 
+    {
+       // try{
+         //   QualifyDate=null;
+       // java.text.DateFormat df;
+         //   df = null;
+       // df = DateFormat.getDateInstance();// ("DD/MM/YYYY");
+        this.QualifyDate = QualifyDate;
+        //this.QualifyDate = df.parse("DD/MM/YYYY");
+       // }
+       // catch(EnumConstantNotPresentException ex){
+       // }
     }
 
     /**
@@ -181,8 +199,14 @@ public class AgentSuperiorsB {
     /**
      * @param RenewalDate the RenewalDate to set
      */
-    public void setRenewalDate(Date RenewalDate) {
+    public void setRenewalDate(Date RenewalDate)  {
+       //try{
+         //  RenewalDate=null;
+        //DateFormat df=new SimpleDateFormat("DD/MM/YYYY");
         this.RenewalDate = RenewalDate;
+      // }
+      // catch(Exception ex){
+       //}
     }
 
     /**
@@ -241,7 +265,7 @@ public class AgentSuperiorsB {
         this.SeniorManagerCode = SeniorManagerCode;
     }
     
-    public AgentSuperiorsB(String Category,String Code,String Branch,String Name,String NepName,String Address,String AgentCode,
+    public AgentSuperiorsB(String Category,int Code,String Branch,String Name,String NepName,String Address,String AgentCode,
     String Phone,Date QualifyDate,String Status,Date RenewalDate,String Mobile,String SuperiorManagerCode,
     String CommPayType,String SeniorManagerCode){
         this.Category=Category;
@@ -261,14 +285,12 @@ public class AgentSuperiorsB {
         this.SeniorManagerCode=SeniorManagerCode;
     }
     
+    @Override
     public String toString(){
         return "AgentSup[Category="+Category+",Code="+Code+",Branch="+Branch+",Name="+Name+",NepName="+NepName+",Address="+Address
                 +",AgentCode="+AgentCode+",Phone="+Phone+",QualifyDate="+QualifyDate+",Status="+Status+",RenewalDate="+RenewalDate
                 +",Mobile="+Mobile+",SuperiorManagerCode="+SuperiorManagerCode+",CommPayType="+CommPayType+",SeniorManagerCode="+SeniorManagerCode+"]";
     }
 
-    public void setQualifiyDate(SimpleDateFormat qlfy) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        this.QualifyDate = QualifyDate;
-    }
+    
 }

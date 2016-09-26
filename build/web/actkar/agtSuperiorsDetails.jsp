@@ -77,7 +77,7 @@
 
                                 <div class="form-group col-xs-12">
                                     <label class="control-label col-sm-4 small" for="spcode">Superiors Code:</label>
-                                    <div class="col-sm-1 small"><input type="text" name="spcode" class="agtput" id="spcode" required="" placeholder="Superiors Code">
+                                    <div class="col-sm-1 small"><input type="text" name="spcode" readonly="readonly" class="agtput" id="spcode" required="" placeholder="Superiors Code">
                                         <span class="help-block"></span>
                                     </div>
 
@@ -163,7 +163,7 @@
 
                                 <div class="form-group col-xs-12">
                                     <label class="control-label col-sm-4 small" for="sqfdt">QualifyDate</label>
-                                    <div class="col-sm-1 small"><input type="text" name="sqfdt" class="agtput" id="sqfdt" required="" placeholder="01/01/2016">
+                                    <div class="col-sm-1 small"><input type="text" name="sqfdt" class="agtput" id="sqfdt"  placeholder="01/01/2016">
                                         <span class="help-block"></span>
                                     </div>
                                 </div> 

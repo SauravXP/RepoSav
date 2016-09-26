@@ -11,12 +11,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.mvc.bean.AgentSuperiorsB;
 import com.mvc.doa.AgentSuperiorsDaoImplement;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -111,63 +113,115 @@ private final AgentSuperiorsDaoImplement asdi;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String cd=request.getParameter("spcode");
-        System.out.println("CODE"+cd);
-        String cats=request.getParameter("cat");
-        System.out.println("CAT"+cats);
-       // if(cats.equals("OF")){
-        //    System.out.println("CAT"+cats);
-       // }
-        System.out.println("CATEGORY:-"+ cats);
-        String brn=request.getParameter("brn");
-        System.out.println("Branch"+brn);
-        //
-        String phone=request.getParameter("phno");
-        System.out.println("CAT"+phone);
+        String act=request.getParameter("inst");
+        System.out.println("ACTION KUN"+act);
         
-//        SimpleDateFormat qlfy=new SimpleDateFormat( "yyyy-MM-dd");
-//SimpleDateFormat qlfy=new SimpleDateFormat( "DD/MM/YYYY HH:MM:SS");
-SimpleDateFormat qlfy=new SimpleDateFormat( "YYYY-MM-DD HH:MM:SS");
-
-        String sqfdt=request.getParameter("sqfdt");
-    //try {
-     //   Date d1=qlfy.parse(sqfdt);
-      //  System.out.println("QUALIFIYDATED1"+d1);
-   // }/ catch (ParseException ex) {
-     //   Logger.getLogger(AgtSuperCont.class.getName()).log(Level.SEVERE, null, ex);
-   // }
-    SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:MM:SS");
-    //System.out.println("QUALIFIYDATEE"+fmt);
-    System.out.println("QUALIFIYDATEM-"+sqfdt);
-   // System.out.println("QUALIFIYDATES"+qlfy);    
-       
-        AgentSuperiorsB asb=new AgentSuperiorsB();
-        System.out.println("HERE I AM");
-        asb.setCode(request.getParameter("spcode"));
+        String p1=request.getParameter("spcode");
+        System.out.println(p1);
+        String p2=request.getParameter("cat");
+        System.out.println("CATS"+p2);
+        AgentSuperiorsB asb;
+    asb = new AgentSuperiorsB();
+        //asb.setCode(request.getParameter("spcode"));
         asb.setCategory(request.getParameter("cat"));
                 asb.setBranch(request.getParameter("brn"));
                 asb.setName(request.getParameter("sname"));
-                asb.setAddress(request.getParameter("address"));
+                asb.setAddress(request.getParameter("addres"));
                 asb.setAgentCode(request.getParameter("pagtcode"));
                asb.setPhone(request.getParameter("phno"));
         asb.setMobile(request.getParameter("mobil"));
-                asb.setNepName(request.getParameter("agnamnp"));
-         // asb.setQualifiyDate(new java.util.Date(request.getParameter("sqfdt")));
-           
+                asb.setNepName(request.getParameter("agnamen"));
+                //Date qlfy;
+               // qlfy = new Date(request.getParameter("sqfdt"));
+               // Date ren;
+                //ren = new Date(request.getParameter("srnldt"));                
+                
+             // asb.setQualifiyDate(request.getParameter("sqfdt"));
+            // System.out.println("QualifyDate"+qlfy);
+             //System.out.println("RenewalDate"+ren);
+             //String q=request.getParameter("sqfdt");
+             //System.out.println("QualifyDate"+q);
+             
+            // String R=request.getParameter("srnldt");
+            // System.out.println("RenewalDate"+R);
+            // SimpleDateFormat  df=new SimpleDateFormat("DD/MM/YYYY");
+         //    String qd=df.format(request.getParameter("sqfdt"));
+      try {
+        //DateTimeFormatter
+       // rn =new SimpleDateFormat("MM/DD/YYYY HH:MM:SS",Locale.ENGLISH).parse(rd);
+       //asb.setQualifiyDate(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").parse(request.getParameter("sqfdt")));
+       Date qlfy=new SimpleDateFormat("MM/dd/YYYY").parse(request.getParameter("sqfdt"));
+       System.out.println("QLFYDAATE:-"+qlfy);
        asb.setQualifiyDate(qlfy);
-       asb.setRenewalDate(new java.util.Date(request.getParameter("srnldt")));
-        asb.setStatus(request.getParameter("crrsts"));
-        asb.setCommPayType(request.getParameter("compty"));
-        asb.setSuperiorManagerCode(request.getParameter("mgrcod"));
+      } catch (ParseException ex) {
+        Logger.getLogger(AgtSuperCont.class.getName()).log(Level.SEVERE, null, ex);
+        ex.printStackTrace();
+    }
+        //  Date QLFY;
+       // QLFY = new Date(request.getParameter("sqfdt"));
+       // asb.setRenewalDate(QLFY);
+        
+        //String prmstr=request.getParameter("qlfy");
+        //Date Qlfy1=null;
+    //try {
+     //   Qlfy1=txtFrm.parse(prmstr);
+      //  asb.setQualifiyDate(Qlfy1);
+   // } catch (ParseException ex) {
+    //    Logger.getLogger(AgtSuperCont.class.getName()).log(Level.SEVERE, null, ex);
+   // }
+         //Date Qlfy;
+       // Qlfy = new Date(request.getParameter("qlfy"));
+       // asb.setQualifiyDate(Qlfy);
+        
+       
+         asb.setStatus(request.getParameter("crrsts"));
+         //String rd=request.getParameter("srnldt");
+       //  Date RNLY;
+       // RNLY = new Date(request.getParameter("srnldt"));
+       // asb.setRenewalDate(RNLY);
+         Date rn=new Date();
+    try {
+        //DateTimeFormatter
+       // rn =new SimpleDateFormat("MM/DD/YYYY HH:MM:SS",Locale.ENGLISH).parse(rd);
+       //asb.setRenewalDate(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").parse(request.getParameter("srnldt")));
+     Date rens=new SimpleDateFormat("MM/dd/YYYY").parse(request.getParameter("srnldt"));
+       System.out.println("RENEWQAL:-"+rens);
+       asb.setRenewalDate(rens);  
+    } catch (ParseException ex) {
+        Logger.getLogger(AgtSuperCont.class.getName()).log(Level.SEVERE, null, ex);
+        ex.printStackTrace();
+    } 
+                System.out.println("RENEWALDATE:-"+request.getParameter("sqfdt"));
+        // asb.setRenewalDate(rn);       
+         
+         
+       // Date RenlD;
+      //  RenlD = new Date(request.getParameter("sqfdt"));
+        //     asb.setRenewalDate(RenlD);
+             
+                //asb.setQualifiyDate(qlfy);
+       //asb.setRenewalDate((ren));
+      
+      asb.setSuperiorManagerCode(request.getParameter("mgrcod"));   
+        asb.setCommPayType(request.getParameter("comty"));
         asb.setSeniorManagerCode(request.getParameter("smgrcode"));   
         
-        String Code=request.getParameter("Code");
+        String action=request.getParameter("action");
+        //System.out.println("HERE"+action);
+        
+        String Code=request.getParameter("spcode");
         if(Code==null || Code.isEmpty()){
+            System.out.println("CODE is "+Code);
+            
             asdi.addSuperiors(asb);
+           
+           
         }
         else{
-            asb.setCode(Code);
+            
+            asb.setCode(Integer.parseInt(Code));
             asdi.updateSuperiors(asb);
+            
         }
         RequestDispatcher view=request.getRequestDispatcher(LIST_SUPER);
         request.setAttribute("supers", asdi.getallSuperiors());

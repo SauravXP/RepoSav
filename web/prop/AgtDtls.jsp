@@ -92,6 +92,7 @@ position:relative; top: 50px; right:-50px;
             <div role="tabpanel" class="tab-pane active" id="personal">
              Agent's Personal Details
                 <hr>
+        <form method="Post" action="AgtDtlCont.gar" name="frmAgtDetails">
            <div class="form-group col-xs-12">
             <label class="control-label col-sm-2" for="agentcode">Agentcode</label>
             <div class="col-sm-1"><input type="text" name="agcode" class="agtput" id="agentcode" required="" placeholder="AgentCode">
@@ -110,19 +111,19 @@ position:relative; top: 50px; right:-50px;
                 
            <div class="form-group col-xs-12">
             <label class="control-label col-sm-2" for="name">Name</label>
-            <div class="col-sm-1"><input type="text" name="fname" class="agtput" id="name" placeholder="Full Name">
+            <div class="col-sm-1"><input type="text" name="name" class="agtput" id="name" placeholder="Full Name">
                 <span class="help-block"></span>
             </div>
             </div>           
              
          <div class="form-group col-xs-12">
-            <label class="control-label col-sm-2" for="name">NepName</label>
-            <div class="col-sm-1"><input type="text" name="nepname" class="agtput" id="name" placeholder="NepaliName">
+            <label class="control-label col-sm-2" for="nepname">NepName</label>
+            <div class="col-sm-1"><input type="text" name="nepname" class="agtput" id="nepname" placeholder="NepaliName">
                 <span class="help-block"></span>
             </div>
             </div>      
         <div class="form-group col-xs-12">
-            <label class="control-label col-sm-2" for="name">DOB</label>
+            <label class="control-label col-sm-2" for="dob">DOB</label>
             <div class="col-sm-6"><input type="text" name="dob" class="agtput" id="dob" placeholder="DateOfBirth">
                 <span class="help-block"></span>
             </div>
@@ -153,7 +154,7 @@ position:relative; top: 50px; right:-50px;
             <label class="control-label col-sm-2" for="anchal">Anchal</label>
             <div class="form-group col-xs-8 ">
             <select class="form-control selt input-group" >
-                <option value="" selected="selected" id="gender" class="selt" >Anchal</option>
+                <option value="" selected="selected" id="anchal" class="selt" >Anchal</option>
               <option value="M">Mechi</option>
               <option value="F">Koshi</option>
             </select>
@@ -214,7 +215,14 @@ position:relative; top: 50px; right:-50px;
             <div class="col-sm-6"><input type="text" name="occ" class="agtput" id="occu" placeholder="Occupation">
                 <span class="help-block"></span>
             </div>
-    </div>                
+    </div>  
+
+<div class="form-group col-xs-12">
+            <label class="control-label col-sm-2" for="isds">IsDocumentSubmitted</label>
+            <div class="col-sm-6"><input type="text" name="isds" class="agtput" id="isds" placeholder="If Document Submitted">
+                <span class="help-block"></span>
+            </div>
+    </div>             
                 
          <div class="form-group col-xs-12">
             <label class="control-label col-sm-2" for="fax">Fax</label>
@@ -293,12 +301,12 @@ position:relative; top: 50px; right:-50px;
             </div>
          </div>
                
-        <div class="form-group col-xs-12">
+   <!--     <div class="form-group col-xs-12">
             <label class="control-label col-sm-2 small " for="bnkname">Bank Name</label>
             <div class="col-sm-6 small"><input type="text" name="bnkname" class="agtput" id="bnkname" placeholder="Bank Name">
                 <span class="help-block"></span>
             </div>
-         </div>
+         </div> -->
                
         <div class="form-group col-xs-12">
             <label class="control-label col-sm-2 small" for="licfrom">License From</label>
@@ -378,6 +386,35 @@ position:relative; top: 50px; right:-50px;
             </div>
          </div> 
         
+         AgentSelfDesignation:-
+        <hr>      
+         <div class="form-group col-xs-12">
+            <label class="control-label col-sm-1 small " for="issoff">IsOfficer</label>
+            <div class="col-sm-6 small"><input type="text" name="issoff" class="agtput" id="bdcode" value="ajaxinput">
+                <span class="help-block"></span>
+            </div>
+         </div> 
+        <div class="form-group col-xs-12">
+            <label class="control-label col-sm-1 small " for="isMang">IsManager</label>
+            <div class="col-sm-6 small"><input type="text" name="isMang" class="agtput" id="bmcode" value="ajaxinput">
+                <span class="help-block"></span>
+            </div>
+         </div> 
+         <div class="form-group col-xs-12">
+            <label class="control-label col-sm-1 small " for="issoffQ">OfficerQualifyDate</label>
+            <div class="col-sm-6 small"><input type="text" name="issoffQ" class="agtput" id="issoffQ" value="ajaxinput">
+                <span class="help-block"></span>
+            </div>
+         </div> 
+        <div class="form-group col-xs-12">
+            <label class="control-label col-sm-1 small " for="isMangQ">ManagerQualifyDate</label>
+            <div class="col-sm-6 small"><input type="text" name="isMangQ" class="agtput" id="isMangQ" value="ajaxinput">
+                <span class="help-block"></span>
+            </div>
+         </div> 
+        
+        
+        
         <!-- Nominee Panel Start from here -->
            <div class="col-md-5" style="margin-top: -530px; margin-left: 550px; " >
 				<div class="panel panel-primary ">
@@ -417,11 +454,12 @@ position:relative; top: 50px; right:-50px;
         
                         </hr>
                       <div class="form-group col-xs-6">
-                     <button type="button" class="btn btn-success" type="submit">Save</button>
-                     <button type="button" class="btn btn-danger" type="reset" >Cancel</button>
+                     <button type="submit" class="btn btn-success" type="submit">Save</button>
+                     <button type="reset" class="btn btn-danger" type="reset" >Cancel</button>
                      <span class="help-block"></span>
-                     
+                      
                     </div>
+                        </form>      
             </div>
             
             
